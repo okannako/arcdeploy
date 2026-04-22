@@ -193,16 +193,16 @@ contract HelloArchitectTest is Test {
 ````
 forge test
 ````
-Bütün testler geçmelidir.
+- Bütün testler geçmelidir.
 
 3.4) Sözleşmeyi derle
 ````
 forge build
 ````
-Bu, out/ klasöründe bytecode ve ABI üretir; deploy sırasında Foundry bunları kullanır.
+- Bu, out/ klasöründe bytecode ve ABI üretir; deploy sırasında Foundry bunları kullanır.
 
 7️⃣ Adım 4 — Cüzdan oluştur, testnet USDC al ve deploy et
-Bu bölüm yine Arc dokümanının “Deploy your contract to Arc testnet” kısmına birebir uygundur.
+- Bu bölüm yine Arc dokümanının “Deploy your contract to Arc testnet” kısmına birebir uygundur.
 
 4.1) Yeni bir cüzdan oluştur
 ````
