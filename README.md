@@ -139,7 +139,8 @@ contract HelloArchitect {
 }
 ````
 
-6️⃣ Adım 3 — Test ve derleme
+6️⃣ Adım 3 — Test ve Derleme
+
 3.1) Eski script ve test dosyalarını temizle
 - Arc dokümanı, Counter.sol referanslı script/test dosyalarını kaldırmamızı öneriyor.
 ```
