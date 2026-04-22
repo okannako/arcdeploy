@@ -9,17 +9,17 @@
 
 ### İçindekiler
 
-- Arc Testnet bağlantı bilgileri
-- Ön koşullar
-- Adım 0 — Sistem bağımlılıkları ve Foundry kurulumu (Ubuntu 22.04)
-- Adım 1 — Foundry projesi oluştur ve Arc RPC’yi yapılandır
-- Adım 2 — HelloArchitect sözleşmesini yaz
-- Adım 3 — Test ve derleme
-- Adım 4 — Cüzdan oluştur, testnet USDC al ve deploy et
-- Adım 5 — Etkileşim: Explorer’dan kontrol ve cast ile okuma
+- Arc Testnet Bağlantı Bilgileri
+- Ön Koşullar
+- Adım 0 — Sistem Bağımlılıkları ve Foundry Kurulumu (Ubuntu 22.04)
+- Adım 1 — Foundry Projesi Oluştur ve Arc RPC’yi Yapılandır
+- Adım 2 — HelloArchitect Sözleşmesini Yaz
+- Adım 3 — Test ve Derleme
+- Adım 4 — Cüzdan Oluştur, Testnet USDC Al ve Deploy Et
+- Adım 5 — Etkileşim: Explorer’dan Kontrol ve Cast ile Okuma
 
-1️⃣ Arc Testnet bağlantı bilgileri
-Bu değerler kurulum boyunca kullanılacak (resmi Connect to Arc sayfasından).
+1️⃣ Arc Testnet Bağlantı Bilgileri
+- Bu değerler kurulum boyunca kullanılacak (resmi Connect to Arc sayfasından).
 
 - Ağ adı: Arc Testnet
 - RPC endpoint: https://rpc.testnet.arc.network
@@ -28,23 +28,23 @@ Bu değerler kurulum boyunca kullanılacak (resmi Connect to Arc sayfasından).
 - Block explorer: https://testnet.arcscan.app
 - Faucet: https://faucet.circle.com (USDC almak için, ağ seçimi: Arc Testnet)
 
-2️⃣ Ön koşullar
+2️⃣ Ön Koşullar
 - Makine: Ubuntu 22.04 (sunucu/masaüstü farketmez)
 - Kullanıcı: sudo yetkili bir kullanıcı ya da root
 - Ağ: HTTPS ile dışarıya çıkabilen bir bağlantı (foundryup ve RPC için)
 - Cüzdan: İstersen tarayıcıda MetaMask kur; ancak bu rehber Foundry’nin cast wallet new ile CLI cüzdan kullanır
 - Hesap: Circle Faucet’ten testnet USDC alabilmek için bir cüzdan adresi (CLI ile oluşturacağız)
 
-3️⃣ Adım 0 — Sistem bağımlılıkları ve Foundry kurulumu (Ubuntu 22.04)
+3️⃣ Adım 0 — Sistem Bağımlılıkları ve Foundry Kurulumu (Ubuntu 22.04)
 - Foundry’nin kendisi kurulumu şu iki komuttan ibaret olsa da, Ubuntu’da önce temel build araçlarını kurmak iyi pratiktir. 
 
-A) Sistem paketlerini güncelle ve temel bağımlılıkları kur
+A) Sistem paketlerini güncelle ve temel bağımlılıkları kur.
 ```
 sudo apt update
 sudo apt install -y build-essential curl git ca-certificates
 ```
 
-B) foundryup betiğini indir ve yükle
+B) foundryup betiğini indir ve yükle.
 Resmi kurulum (Foundry README’si ve Arc dokümanıyla aynı akış): 
 ````
 curl -L https://foundry.paradigm.xyz | bash
@@ -54,13 +54,13 @@ curl -L https://foundry.paradigm.xyz | bash
 source ~/.bashrc   # veya kullandığınız shell’e göre: source ~/.zshrc
 ````
 
-C) Foundry araçlarını (forge, cast, anvil, chisel) kur
+C) Foundry araçlarını (forge, cast, anvil, chisel) kur.
 - Tek seferde:
 ````
 foundryup
 ````
 
-D) Kurulumu doğrula
+D) Kurulumu doğrula.
 ````
 forge --version
 cast --version
@@ -69,16 +69,16 @@ chisel --version
 ````
 - En azından forge ve cast versiyonları görünmelidir.
 
-4️⃣ Adım 1 — Foundry projesi oluştur ve Arc RPC’yi yapılandır
+4️⃣ Adım 1 — Foundry Projesi Oluştur ve Arc RPC’yi Yapılandır
 - Bu bölüm yine birebir Arc dokümanından alınmıştır.
 
-1.1) Yeni bir Foundry projesi başlat
+1.1) Yeni bir Foundry projesi başlat.
 ````
 forge init hello-arc && cd hello-arc
 ````
 - Bu, klasik Counter.sol şablonu ile birlikte src/, script/, test/ vb. klasörleri oluşturur.
 
-1.2) Arc RPC için .env dosyası oluştur
+1.2) Arc RPC için .env dosyası oluştur.
 - Arc, .env dosyasında RPC URL’sini saklamayı öneriyor.
 
 - Proje kökünde (hello-arc/):
@@ -95,16 +95,16 @@ ARC_TESTNET_RPC_URL="https://rpc.testnet.arc.network"
 # HELLOARCHITECT_ADDRESS="0x..." # Deploy sonrası doldurulacak
 ````
 
-5️⃣ Adım 2 — HelloArchitect sözleşmesini yaz
+5️⃣ Adım 2 — HelloArchitect Sözleşmesini Yaz
 - Aşağıdaki adımlar birebir Arc dokümanındandır; sadece dosya yolları Ubuntu’ya uygun gösterilmiştir.
 
-2.1) Varsayılan Counter.sol’u sil
+2.1) Varsayılan Counter.sol’u sil.
 ````
 ls -R test/ | grep -i counter
 rm src/Counter.sol
 forge clean
 ````
-2.2) src/HelloArchitect.sol oluştur ve aşağıdaki kodu yapıştır
+2.2) src/HelloArchitect.sol oluştur ve aşağıdaki kodu yapıştır.
 ````
 nano src/HelloArchitect.sol
 ````
@@ -141,12 +141,12 @@ contract HelloArchitect {
 
 6️⃣ Adım 3 — Test ve Derleme
 
-3.1) Eski script ve test dosyalarını temizle
+3.1) Eski script ve test dosyalarını temizle.
 - Arc dokümanı, Counter.sol referanslı script/test dosyalarını kaldırmamızı öneriyor.
 ```
 rm -rf script
 ````
-3.2) Yeni test dosyasını oluştur
+3.2) Yeni test dosyasını oluştur.
 ````
 nano test/HelloArchitect.t.sol
 ````
@@ -189,13 +189,13 @@ contract HelloArchitectTest is Test {
     }
 }
 ````
-3.3) Testleri çalıştır
+3.3) Testleri çalıştır.
 ````
 forge test
 ````
 - Bütün testler geçmelidir.
 
-3.4) Sözleşmeyi derle
+3.4) Sözleşmeyi derle.
 ````
 forge build
 ````
@@ -204,7 +204,7 @@ forge build
 7️⃣ Adım 4 — Cüzdan oluştur, testnet USDC al ve deploy et
 - Bu bölüm yine Arc dokümanının “Deploy your contract to Arc testnet” kısmına birebir uygundur.
 
-4.1) Yeni bir cüzdan oluştur
+4.1) Yeni bir cüzdan oluştur.
 ````
 cast wallet new
 ````
@@ -217,7 +217,7 @@ Private key: 0xcc1b30a6af68ea9a9917f1dd.......................................97
 - Address → bu adrese testnet USDC göndereceğiz
 - Private key → deploy için kullanacağız (testnet olduğu için bu rehberde .env’e alacağız; üretimde asla böyle yapma)
 
-4.2) .env dosyasını güncelle
+4.2) .env dosyasını güncelle.
 - .env dosyasına az önceki PRIVATE_KEY değerini ekle:
 ```
 # Arc Testnet RPC
@@ -233,14 +233,14 @@ PRIVATE_KEY="0xcc1b30a6af68ea9a9917f1dd....97c5"  # burayı kendi private keyinl
 ````
 source .env
 ````
-4.3) Cüzdana testnet USDC gönder
+4.3) Cüzdana testnet USDC gönder.
 - cast wallet new çıktısındaki Address: değerini kopyala.
 - Tarayıcıdan Faucet’e git: https://faucet.circle.com
 - Ağ olarak “Arc Testnet” seç (veya adresi girdiğinde otomatik tanır).
 - Adresi yapıştır ve testnet USDC talep et.
 - USDC, Arc’te native gas tokenı olduğu için, bu bakiye deploy sırasında gas ödemek için yeterlidir.
 
-4.4) Sözleşmeyi Arc Testnet’e deploy et
+4.4) Sözleşmeyi Arc Testnet’e deploy et.
 - Arc dokümanındaki deploy komutu (çok küçük bir formatting uyarlamasıyla):
 ````
 forge create src/HelloArchitect.sol:HelloArchitect \
@@ -257,7 +257,7 @@ Transaction hash: 0xeba0fcb5e528d586db0aeb2465a8fad0299330a9773ca62818a1827560a6
 ````
 - Deployed to: satırındaki adresi kaydet.
 
-4.5) Sözleşme adresini .env’e kaydet ve yeniden yükle
+4.5) Sözleşme adresini .env’e kaydet ve yeniden yükle.
 ````
 # ...
 HELLOARCHITECT_ADDRESS="0x32368037b14819C9e5Dbe96b3d67C59b8c65c4BF"  # kendi adresinle değiştir
@@ -266,14 +266,14 @@ HELLOARCHITECT_ADDRESS="0x32368037b14819C9e5Dbe96b3d67C59b8c65c4BF"  # kendi adr
 ````
 source .env
 ````
-8️⃣ Adım 5 — Etkileşim: Explorer’dan kontrol ve cast ile okuma
+8️⃣ Adım 5 — Etkileşim: Explorer’dan Kontrol ve Cast ile Okuma
 
-5.1) Explorer’da kontrol
+5.1) Explorer’da kontrol.
 - Arc Testnet Explorer’a git: https://testnet.arcscan.app
 - Arama kutusuna deploy çıktısındaki Transaction hash değerini yapıştır.
 - Detayları görüntüle: durum (status), from/to (contract creation), vs.
 
-5.2) cast ile getGreeting() çağrısı
+5.2) cast ile getGreeting() çağrısı.
 - Arc dokümanındaki örneği aynen uygulayabiliriz:
 ```
 cast call $HELLOARCHITECT_ADDRESS "getGreeting()(string)" \
@@ -285,7 +285,7 @@ Hello Architect!
 ````
 - Bu, sözleşmenin canlıda çalıştığını gösterir.
 
-5.3) (İsteğe bağlı) cast send ile setGreeting() çağrısı
+5.3) (İsteğe bağlı) cast send ile setGreeting() çağrısı.
 - Örnek (USDC bakiyeniz olduğunda gas ödenecektir):
 ````
 cast send $HELLOARCHITECT_ADDRESS \
