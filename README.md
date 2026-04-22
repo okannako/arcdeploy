@@ -76,16 +76,16 @@ chisel --version
 ````
 forge init hello-arc && cd hello-arc
 ````
-Bu, klasik Counter.sol şablonu ile birlikte src/, script/, test/ vb. klasörleri oluşturur.
+- Bu, klasik Counter.sol şablonu ile birlikte src/, script/, test/ vb. klasörleri oluşturur.
 
 1.2) Arc RPC için .env dosyası oluştur
-Arc, .env dosyasında RPC URL’sini saklamayı öneriyor.
+- Arc, .env dosyasında RPC URL’sini saklamayı öneriyor.
 
-Proje kökünde (hello-arc/):
+- Proje kökünde (hello-arc/):
 ````
 nano .env
 ````
-.env içine şunu ekle ( RPC, Arc Connect sayfasından):
+- .env içine şunu ekle ( RPC, Arc Connect sayfasından):
 ````
 # Arc Testnet RPC
 ARC_TESTNET_RPC_URL="https://rpc.testnet.arc.network"
