@@ -35,7 +35,7 @@
 - Hesap: Circle Faucet’ten testnet USDC alabilmek için bir cüzdan adresi (CLI ile oluşturacağız)
 
 3️⃣ Sistem Bağımlılıkları ve Foundry Kurulumu (Ubuntu 22.04)
-- Foundry’nin kendisi kurulumu şu iki komuttan ibaret olsa da, Ubuntu’da önce temel build araçlarını kurmak iyi pratiktir. 
+- Foundry’nin kendisi kurulumu şu iki komuttan ibaret olsa da, Ubuntu’da önce temel build araçlarını kurmak daha sağlıklı. 
 
 3.1) Sistem paketlerini güncelle ve temel bağımlılıkları kur.
 ```
@@ -44,7 +44,7 @@ sudo apt install -y build-essential curl git ca-certificates
 ```
 
 3.2) foundryup betiğini indir ve yükle.
-Resmi kurulum (Foundry README’si ve Arc dokümanıyla aynı akış): 
+- Resmi kurulum (Foundry README’si ve Arc dokümanıyla aynı akış): 
 ````
 curl -L https://foundry.paradigm.xyz | bash
 ````
@@ -54,7 +54,7 @@ source ~/.bashrc   # veya kullandığınız shell’e göre: source ~/.zshrc
 ````
 
 3.3) Foundry araçlarını (forge, cast, anvil, chisel) kur.
-- Tek seferde:
+- Alttaki kodla kurulum yapıyoruz.
 ````
 foundryup
 ````
@@ -139,7 +139,6 @@ contract HelloArchitect {
 ````
 
 6️⃣ Test ve Derleme
-
 6.1) Eski script ve test dosyalarını temizle.
 - Arc dokümanı, Counter.sol referanslı script/test dosyalarını kaldırmamızı öneriyor.
 ```
@@ -188,6 +187,7 @@ contract HelloArchitectTest is Test {
     }
 }
 ````
+
 6.3) Testleri çalıştır.
 ````
 forge test
@@ -232,6 +232,7 @@ PRIVATE_KEY="0xcc1b30a6af68ea9a9917f1dd....97c5"  # burayı kendi private keyinl
 ````
 source .env
 ````
+
 7.3) Cüzdana testnet USDC gönder.
 - cast wallet new çıktısındaki Address: değerini kopyala.
 - Tarayıcıdan Faucet’e git: https://faucet.circle.com
@@ -265,8 +266,8 @@ HELLOARCHITECT_ADDRESS="0x32368037b14819C9e5Dbe96b3d67C59b8c65c4BF"  # kendi adr
 ````
 source .env
 ````
-8️⃣ Etkileşim: Explorer’dan Kontrol ve Cast ile Okuma
 
+8️⃣ Etkileşim: Explorer’dan Kontrol ve Cast ile Okuma
 8.1) Explorer’da kontrol.
 - Arc Testnet Explorer’a git: https://testnet.arcscan.app
 - Arama kutusuna deploy çıktısındaki Transaction hash değerini yapıştır.
