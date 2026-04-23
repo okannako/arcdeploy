@@ -31,7 +31,7 @@
 - Makine: Ubuntu 22.04 (sunucu/masaüstü farketmez)
 - Kullanıcı: sudo yetkili bir kullanıcı ya da root
 - Ağ: HTTPS ile dışarıya çıkabilen bir bağlantı (foundryup ve RPC için)
-- Cüzdan: İstersen tarayıcıda MetaMask kur; ancak bu rehber Foundry’nin cast wallet new ile CLI cüzdan kullanır
+- Cüzdan: İstersen tarayıcıda MetaMask kur; ancak bu rehber Foundry’nin cast wallet new ile CLI cüzdan kullanır. Metamask gerekli değil ama cüzdanı görmek isterseniz import edebilirsiniz.
 - Hesap: Circle Faucet’ten testnet USDC alabilmek için bir cüzdan adresi (CLI ile oluşturacağız)
 
 3️⃣ Sistem Bağımlılıkları ve Foundry Kurulumu (Ubuntu 22.04)
